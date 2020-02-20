@@ -10,11 +10,11 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', ]
+requirements = ['Click>=7.0', 'matplotlib==3.1.3', 'numpy==1.18.1', 'scipy==1.4.1']
 
-setup_requirements = [ ]
+setup_requirements = []
 
-test_requirements = [ ]
+test_requirements = []
 
 setup(
     author="Tao-Yi Lee",
@@ -34,7 +34,7 @@ setup(
     description="Python Pulse Decomposition Analysis Library",
     entry_points={
         'console_scripts': [
-            'pypda=pypda.cli:main',
+            'pypda=pypda.cli:cli',
         ],
     },
     install_requires=requirements,
