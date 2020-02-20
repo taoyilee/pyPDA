@@ -44,9 +44,12 @@ def pulse(plot_dir='plot', png=False):
     import matplotlib.pyplot as plt
     w = PulseModelRaw()
     plt.plot(w.waveform)
+    for i, wavelet in enumerate(w.wavelets):
+        plt.plot(wavelet.waveform, linestyle="--", label=f"component {i + 1}")
     plt.grid()
     plt.title(f"Pulse Model")
     plt.ylabel("Amplitude")
+    plt.legend()
     plt.xlabel("Sample")
     plt.tight_layout()
     if png:
