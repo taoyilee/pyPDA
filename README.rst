@@ -67,7 +67,7 @@ Please feel free to fork a copy on GitHUB. Pull requests are very welcome. To re
 
 Screen Capture
 ===================
-.. image:: docs/pulse.png
+.. image:: https://github.com/taoyilee/pyPDA/blob/master/docs/pulse.png?raw=true
     :width: 400
     :alt: Sample blood pressure waveform
 
