@@ -31,7 +31,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description="Python Pulse Decomposition Analysis Library",
+    description="A Pythonic toolkit to generate synthetic blood pressure waveforms based on principle of pulse decomposition analysis (PDA).",
     entry_points={
         'console_scripts': [
             'pypda=pypda.cli:cli',

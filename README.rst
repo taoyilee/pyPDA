@@ -16,8 +16,7 @@ pyPDA
 
 
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
-
+A Pythonic toolkit to generate synthetic blood pressure waveforms based on principle of pulse decomposition analysis (PDA).
 
 * Free software: MIT license
 
