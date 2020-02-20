@@ -20,18 +20,58 @@ Python Boilerplate contains all the boilerplate you need to create a Python pack
 
 
 * Free software: MIT license
-* Documentation: https://pypda.readthedocs.io.
 
 
-Features
---------
+Quick Start
+==============
 
-* TODO
+Use
+-----------------
+It is recommended that pyPDA should be setup in a Python `virtual environment <https://docs.python-guide.org/dev/virtualenvs/>`_.
 
-Credits
--------
+.. code-block:: console
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+    python -m venv venv
+    source venv/bin/activate
+    pip install pyPDA
+    pypda pulse --plot-dir work_dir --png # plot pulse waveform to word_dir
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. code-block:: python
+
+    from pypda.pulse_model import PulseModelRaw
+
+    pulse_waveform = PulseModelRaw()
+    import matplotlib.pyplot as plt
+    plt.plot(pulse_waveform.pulse_waveform)
+
+    from pypda.wavelets import TriangGaussian
+    triangular_pulse = TriangGaussian()
+    triangular_pulse.shift(10) # optional horizontal shifting of waveform
+    plt.plot(triangular_pulse.pulse_waveform)
+
+    # addition operator is supported
+    superpositioned_pulse = pulse_waveform + triangular_pulse
+    plt.plot(superpositioned_pulse.pulse_waveform)
+
+
+Development
+-----------------
+Please feel free to fork a copy on GitHUB. Pull requests are very welcome. To report an issue, please use `GitHub issue tracker <https://github.com/taoyilee/pyPDA/issues>`_.
+
+.. code-block:: console
+
+    python -m venv venv
+    source venv/bin/activate
+    git clone git@github.com:taoyilee/pyPDA.git
+    pip install -r requirements_dev.txt
+    # Start coding.
+
+Screen Capture
+===================
+.. image:: docs/pulse.png
+    :width: 400
+    :alt: Sample blood pressure waveform
+
+References
+===================
+1. Baruch, Martin C., et al. "Pulse decomposition analysis of the digital arterial pulse during hemorrhage simulation." Nonlinear biomedical physics 5.1 (2011): 1. `[PDF] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3025935/pdf/1753-4631-5-1.pdf>`_

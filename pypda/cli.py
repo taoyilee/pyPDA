@@ -29,6 +29,7 @@ def wavelet(plot_dir='plot', png=False):
     plt.title(f"Smoothed Triangular Window m_triangle={w.triang_m}, m_gaussian={w.gaussian_m} std={w.gaussian_std}")
     plt.ylabel("Amplitude")
     plt.xlabel("Sample")
+    plt.tight_layout()
     if png:
         plt.savefig(os.path.join(plot_dir, "triangle.png"))
 
@@ -47,6 +48,7 @@ def pulse(plot_dir='plot', png=False):
     plt.title(f"Pulse Model")
     plt.ylabel("Amplitude")
     plt.xlabel("Sample")
+    plt.tight_layout()
     if png:
         plt.savefig(os.path.join(plot_dir, "pulse.png"))
 
