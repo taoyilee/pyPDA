@@ -22,10 +22,11 @@ A Pythonic toolkit to generate synthetic blood pressure waveforms based on princ
 
 
 Quick Start
-==============
+-----------------
+
 
 Use
------------------
+~~~~~~~~~~~~~~~~
 It is recommended that pyPDA should be setup in a Python `virtual environment <https://docs.python-guide.org/dev/virtualenvs/>`_.
 
 .. code-block:: console
@@ -54,7 +55,7 @@ It is recommended that pyPDA should be setup in a Python `virtual environment <h
 
 
 Development
------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 Please feel free to fork a copy on GitHUB. Pull requests are very welcome. To report an issue, please use `GitHub issue tracker <https://github.com/taoyilee/pyPDA/issues>`_.
 
 .. code-block:: console
@@ -66,11 +67,11 @@ Please feel free to fork a copy on GitHUB. Pull requests are very welcome. To re
     # Start coding.
 
 Screen Capture
-===================
+---------------------
 .. image:: https://github.com/taoyilee/pyPDA/blob/master/docs/pulse.png?raw=true
     :width: 400
     :alt: Sample blood pressure waveform
 
 References
-===================
+---------------------
 1. Baruch, Martin C., et al. "Pulse decomposition analysis of the digital arterial pulse during hemorrhage simulation." Nonlinear biomedical physics 5.1 (2011): 1. `[PDF] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3025935/pdf/1753-4631-5-1.pdf>`_
