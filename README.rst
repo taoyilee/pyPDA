@@ -34,7 +34,10 @@ It is recommended that pyPDA should be setup in a Python `virtual environment <h
     python -m venv venv
     source venv/bin/activate
     pip install pyPDA
-    pypda pulse --plot-dir work_dir --png # plot pulse waveform to word_dir
+    pypda pulse --plot-dir work_dir --png # plot single beat waveform to word_dir
+
+    # plot 10 second pulse waveform of 65 bpm, sampled at 90 Hz to word_dir
+    pypda sample --bpm 65 --plot-dir work_dir --png --length 10 --sampling-rate 90
 
 .. code-block:: python
 
@@ -71,6 +74,10 @@ Screen Capture
 .. image:: docs/pulse.png
     :width: 400
     :alt: Sample blood pressure waveform
+
+.. image:: docs/sample.png
+    :width: 400
+    :alt: Sample pulse waveform with abnormality indicator
 
 References
 ---------------------
