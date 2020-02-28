@@ -28,9 +28,9 @@ class Waveform(abc.ABC):
 
     def __add__(self, other: "Waveform"):
         assert isinstance(other, Waveform), f"{other} is not a Waveform"
-        w = ArbitraryWaveform(max(len(self), len(other)))
-        w.waveform = self.waveform
-        w.waveform += other.waveform
+        w = ArbitraryWaveform(length=max(len(self), len(other)))
+        w.waveform[:len(self)] = self.waveform
+        w.waveform[:len(other)] += other.waveform
         return w
 
     def __radd__(self, other):
@@ -40,8 +40,12 @@ class Waveform(abc.ABC):
 
 
 class ArbitraryWaveform(Waveform):
-    def __init__(self, length):
-        self._waveform = np.zeros(length)
+    def __init__(self, length=10, waveform=None):
+        if waveform is not None:
+            assert waveform.ndim == 1
+            self._waveform = waveform
+        else:
+            self._waveform = np.zeros(length)
 
     @property
     def waveform(self) -> np.ndarray:
