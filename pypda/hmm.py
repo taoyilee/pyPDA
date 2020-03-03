@@ -4,6 +4,8 @@ from typing import Union, Iterable
 
 import numpy as np
 
+from pypda.parameters import PulseWaveParameters
+
 
 class CPT:
     def __init__(self, n_variables=3, states=2, definition="P(A|B,C)"):
@@ -30,22 +32,12 @@ class CPT:
 
 
 class HMM:
-    def __init__(self, time_steps=100,
-                 normal_mean=(1, 2, 3, 4, 5), normal_scale=(1, 1, 1, 1, 1),
-                 abnormal_mean=(2, 4, 6, 8, 10), abnormal_scale=(1, 2, 3, 4, 5)):
+
+    def __init__(self, parameters: "PulseWaveParameters", time_steps=100):
         self.SEVERITY_STEPS = 3
         self.prior_normal = 0.99
-        self.output_features = len(normal_mean)
-        self.normal_mean = normal_mean
-        assert len(normal_scale) == self.output_features, \
-            f"len(normal_scale)={len(normal_scale)} must be equal to #output_features={self.output_features}"
-        self.normal_scale = normal_scale
-        assert len(abnormal_mean) == self.output_features, \
-            f"len(abnormal_mean)={len(abnormal_mean)} must be equal to #output_features={self.output_features}"
-        self.abnormal_mean = abnormal_mean
-        assert len(abnormal_scale) == self.output_features, \
-            f"len(abnormal_scale)={len(abnormal_scale)} must be equal to #output_features={self.output_features}"
-        self.abnormal_scale = abnormal_scale
+        self.p = parameters  # type:PulseWaveParameters
+        self.output_features = len(self.p.normal)
 
         self.T = time_steps
         self.cpt_n_transistion = CPT(n_variables=3, states=2, definition="P(n_{t+1}|n_{t}, s_{t-1}")
@@ -95,10 +87,10 @@ class HMM:
 
             if x[i]:  # abnormal
                 _idx = np.random.choice(range(features_a[s[i]].shape[0]))
-                features = features_a[s[i]][_idx, :] * self.abnormal_scale + self.abnormal_mean
+                features = features_a[s[i]][_idx, :] * self.p.abnormal.scale + self.p.normal.mean
             else:  # normal
                 _idx = np.random.choice(range(features_n[s[i]].shape[0]))
-                features = features_a[s[i]][_idx, :] * self.normal_scale + self.normal_mean
+                features = features_a[s[i]][_idx, :] * self.p.normal.scale + self.p.normal.mean
             y[i]['samples'] = int(features[0])
             y[i]['baseline'] = features[1]
 
