@@ -1,7 +1,8 @@
 import os
 
 from matplotlib import pyplot as plt
-
+import logging
+logger = logging.getLogger("pypda")
 
 def plot_waveform(plot_dir, t, wave, x, y):
     plt.figure(figsize=(wave.beats, 6))
@@ -20,4 +21,4 @@ def plot_waveform(plot_dir, t, wave, x, y):
     plt.tight_layout()
     output_plot = os.path.join(plot_dir, "sample_test.png")
     plt.savefig(output_plot)
-    print(f"waveform plot saved to {output_plot}")
+    logger.debug(f"waveform plot saved to {output_plot}")

@@ -1,3 +1,6 @@
+import logging
+logger = logging.getLogger("pypda")
+
 from pypda.api import plot_waveform
 
 
@@ -32,8 +35,8 @@ def sample_test(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False)
         10, 5, .2, .2, .2, .2, .2, .2, .2, .2, .2, .5, .5, .5, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2)
 
     p.abnormal.scale = (10, 20, .2, .2, .2, .2, .2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    print(f"Parameters for normal =\n{p.normal}")
-    print(f"Parameters for abnormal =\n{p.abnormal}")
+    logger.debug(f"Parameters for normal =\n{p.normal}")
+    logger.debug(f"Parameters for abnormal =\n{p.abnormal}")
     wave = PulseWave(parameters=p, bpm=bpm, length=length, sampling_rate=sampling_rate)
     x, y, t = wave.sample()
     if png:
@@ -68,8 +71,8 @@ def sample(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False):
         10, 5, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2, .2)
 
     p.abnormal.scale = (10, 20, .2, .2, .2, .2, .2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    print(f"Parameters for normal =\n{p.normal}")
-    print(f"Parameters for abnormal =\n{p.abnormal}")
+    logger.debug(f"Parameters for normal =\n{p.normal}")
+    logger.debug(f"Parameters for abnormal =\n{p.abnormal}")
     wave = PulseWave(parameters=p, bpm=bpm, length=length, sampling_rate=sampling_rate)
     x, y, t = wave.sample()
     if png:

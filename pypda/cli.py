@@ -1,8 +1,14 @@
 """Console script for pypda."""
+import logging
 import sys
 
 import click
 
+logger = logging.getLogger("pypda")
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 DEBUG = False
 
 
@@ -11,7 +17,11 @@ DEBUG = False
 def cli(debug):
     global DEBUG
     DEBUG = debug
-    click.echo('Debug mode is %s' % ('on' if debug else 'off'))
+    if DEBUG:
+        console_handler.setLevel(logging.DEBUG)
+        logger.setLevel(logging.DEBUG)
+
+    logger.info('Debug mode is %s' % ('on' if debug else 'off'))
 
 
 @cli.command()  # @cli, not @click!
