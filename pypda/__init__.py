@@ -2,4 +2,4 @@
 
 __author__ = """Tao-Yi Lee"""
 __email__ = 'taoyil@uci.edu'
-__version__ = '0.4.0'
+__version__ = '__version__ = '0.4.0''
