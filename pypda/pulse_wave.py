@@ -44,7 +44,7 @@ class PulseWave:
 
         fx = interp1d(t_raw, x, kind="cubic")
         t_start = np.random.random() * (max(t_raw) - self.length)
-        t = np.linspace(t_start, self.length + t_start, self.length * self.sampling_rate)
+        t = np.linspace(t_start, self.length + t_start, int(self.length * self.sampling_rate))
 
         x = fx(t)
         sos = cheby2(2, self.STOP_ATTEN, self.CUTOFF / (self.sampling_rate / 2), output="sos")
