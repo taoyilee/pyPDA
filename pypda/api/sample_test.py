@@ -4,7 +4,7 @@ logger = logging.getLogger("pypda")
 from pypda.api import plot_waveform
 
 
-def sample_test(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False):
+def sample_test(plot_dir='plot', length=10, bpm=65, sampling_rate=49.8, png=False):
     """
 
     :param plot_dir:
@@ -44,7 +44,7 @@ def sample_test(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False)
     return x, y, t
 
 
-def sample(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False):
+def sample(plot_dir='plot', length=10, bpm=65, sampling_rate=49.8, png=False):
     """
 
     :param plot_dir:

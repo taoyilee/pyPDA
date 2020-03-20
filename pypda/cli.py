@@ -70,7 +70,7 @@ def pulse(plot_dir='plot', png=False):
 @click.option('--plot-dir', default='plot', help='Plot output directory')
 @click.option('--length', default=10, help='Length of the sample in seconds')
 @click.option('--bpm', default=65, help='BPM')
-@click.option('--sampling-rate', default=90, help='Sampling rate Hz')
+@click.option('--sampling-rate', default=49.8, help='Sampling rate Hz')
 @click.option('--png/--no-png', default=False)
 def sample(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False):
     from pypda.api import sample
@@ -82,7 +82,7 @@ def sample(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False):
 @click.option('--plot-dir', default='plot', help='Plot output directory')
 @click.option('--length', default=10, help='Length of the sample in seconds')
 @click.option('--bpm', default=65, help='BPM')
-@click.option('--sampling-rate', default=90, help='Sampling rate Hz')
+@click.option('--sampling-rate', default=49.8, help='Sampling rate Hz')
 @click.option('--png/--no-png', default=False)
 def sample_test(plot_dir='plot', length=10, bpm=65, sampling_rate=90, png=False):
     from pypda.api import sample_test
